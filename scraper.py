@@ -110,7 +110,8 @@ link_to_fighters_page=fighters_info[key_name]['link']
 fighters_image=fighters_info[key_name]['img']
 record=[]
 next_url="https://www.ufc.com"+link_to_fighters_page
-print(next_url)
+
+#print(next_url)
 source2=urllib.request.urlopen(next_url)
 soup2=BeautifulSoup(source2,"lxml")
 record_tree=soup2.find_all('div',class_='c-hero__headline-suffix')
@@ -118,5 +119,6 @@ record_tree=soup2.find_all('div',class_='c-hero__headline-suffix')
 record=list(record_tree[0].text.split())
 
 fighters_name=fighters_info[key_name]['full_name']
-print(record)
-print(fighters_name)
+
+fighters_name=' '.join(fighters_name.split())
+fighters_record=' '.join(record)

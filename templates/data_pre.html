@@ -6,10 +6,18 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <style>
-            .text{
-                color:Blue;
-                
-                display:inline;
+            h4{
+                font-family: Verdana;
+                font-size: 40px;
+                font-weight: bold;
+                color:Red;
+                margin-left:180px;
+                margin-top: 20px;
+                white-space: nowrap;
+            }
+            .record{
+                margin-left:220px;
+                white-space: nowrap;
             }
         </style>
     </head>
@@ -68,7 +76,8 @@
     <div class="col-sm-1" text-align="centre">
         <img src="/static/MCGREGOR_CONOR.png" alt="User Image" hspace="150">
         
-        <span class="text">{{ fighter_name }}</span>
+        <h4>{{ fighter_name }}</h4>
+        <div class="record">{{ fighter_record }}</div>
     </div>
     </div>
     </div>

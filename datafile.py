@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def graphs():
-	return render_template("data_pre.html",fighter_name=scraper.fighters_name)
+	return render_template("data_pre.html",fighter_name=scraper.fighters_name,fighter_record=scraper.fighters_record)
 
 
 
