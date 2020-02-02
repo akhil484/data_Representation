@@ -6,23 +6,44 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <style>
+            h2{
+                margin-top: 10px;
+                margin-left:260px;
+                font-family: Verdana;
+                font-weight: bold;
+            }
+            p{
+                margin-top: 15px;
+                margin-bottom: 60px;
+                padding: 30px;
+            }
             h4{
                 font-family: Verdana;
                 font-size: 40px;
                 font-weight: bold;
                 color:Red;
                 margin-left:180px;
-                margin-top: 20px;
+                margin-top: 25px;
                 white-space: nowrap;
             }
             .record{
                 margin-left:220px;
                 white-space: nowrap;
             }
+            .row{
+                margin-top: 115px;
+            }
         </style>
     </head>
     <body>
         <div class="container">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10"><h2>Analysis of UFC/MMA Fighters</h2></div>
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="container">
+            <p class="bg-light text-dark">The below graph which is made using a javascript library chart.js shows the name of five of the most popular fighters in history of mixed martial arts which is concluded by scraping the list of most viewed pay-per-view events from a <a href="https://www.tapology.com/search/mma-event-figures/ppv-pay-per-view-buys-buyrate" target="_blank">website</a> and analyze who were the main event fighters most of the time. You can find the source code for whole project <a href="https://github.com/akhil484/data_Representation" target="_blank">here.</a></p>
+
             <div class="row" style="position:absolute; top:90px; left:40px; width:700px; height:800px;">
                 <div class="col-sm-11">
             <canvas id="myChart"></canvas>
@@ -74,7 +95,7 @@
         </script>
     </div>
     <div class="col-sm-1" text-align="centre">
-        <img src="/static/MCGREGOR_CONOR.png" alt="User Image" hspace="150">
+        <img src="/static/MCGREGOR_CONOR.png" alt="User Image" hspace="150" margin-top: 50px>
         
         <h4>{{ fighter_name }}</h4>
         <div class="record">{{ fighter_record }}</div>

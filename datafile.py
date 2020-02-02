@@ -1,15 +1,21 @@
 from flask import Flask,render_template,jsonify
-import scraper
+from scraper import *
 
 
 
 app = Flask(__name__)
 
+@app.before_first_request
+def before_request():
+	global fighters_name
+	global fighters_record
+	global dic
+	fighters_name,fighters_record,dic = scrape_data()
 
 
 @app.route('/')
 def graphs():
-	return render_template("data_pre.html",fighter_name=scraper.fighters_name,fighter_record=scraper.fighters_record)
+	return render_template("data_pre.html",fighter_name=fighters_name,fighter_record=fighters_record)
 
 
 
@@ -17,10 +23,10 @@ def graphs():
 def stats():
 	names=[]
 	numbers=[]
-	for key in scraper.dic:
-		if scraper.dic[key]>1:
+	for key in dic:
+		if dic[key]>1:
 			names.append(key)
-			numbers.append(scraper.dic[key])
+			numbers.append(dic[key])
 	return jsonify({'name':names, 'num':numbers})
 
 
