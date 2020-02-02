@@ -8,8 +8,6 @@ app = Flask(__name__)
 @app.before_first_request
 def before_request():
 	global fighters_name, fighters_record, dic
-	#global fighters_record
-	#global dic
 	fighters_name,fighters_record,dic = scrape_data()
 
 
