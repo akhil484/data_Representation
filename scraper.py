@@ -131,4 +131,4 @@ def scrape_data():
 	
 if __name__=='__main__':
 
-	scrape_data()
+	fighters_name,fighters_record,dic=scrape_data()
