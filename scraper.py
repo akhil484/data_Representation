@@ -64,19 +64,22 @@ def scrape_data():
 	    else:
 	        return False
 
+	
 
 
 	#To click on load more button on the page
-	driver=webdriver.Chrome(executable_path="/home/akhil/crawler/chromedriver_linux64/chromedriver")
+	driver=webdriver.Chrome(executable_path="/home/akhil/crawler/chromedriver_linux64 (2)/chromedriver")
 	driver.get('https://www.ufc.com/athletes/all')
+	
 	delay = 7 #seconds
 
 	while True:
 	    try:
-	        myElem = WebDriverWait(driver, delay).until(expected_conditions.presence_of_element_located((By.XPATH, '//*[@id="block-mainpagecontent"]/div/div/div[1]/div/div/ul/li/a')))
+	        myElem = WebDriverWait(driver, delay).until(expected_conditions.presence_of_element_located((By.XPATH, '//*[@id="block-mainpagecontent"]/div/div/div[2]/div/div/ul/li/a')))
 	        print("found the btn")
 	    except TimeoutException:
-	        break
+	    	print('-------------------------------------------')
+	    	break
 
 	    driver.execute_script("arguments[0].click()", myElem)
 	    print('click')
@@ -98,17 +101,19 @@ def scrape_data():
 	for i in name_tree_request.find_all('div',class_='c-listing-athlete-flipcard'):
 		full_name=i.find('span',class_='c-listing-athlete__name').text
 		first=full_name.split()
-		sec=first[1]
+		print(first)
+		sec = first[1] if len(first)>1 else first[0]
 		im=i.find('span',class_='c-listing-athlete__name')
 		im=i.img['src']
 		link=i.find('div',class_='c-listing-athlete-flipcard__action').a['href']
+		print('-------',sec)
 		fighters_info[sec]={}
 		fighters_info[sec]['full_name']=full_name
 		fighters_info[sec]['img']=im
 		fighters_info[sec]['link']=link
 
 
-
+	
 	link_to_fighters_page=fighters_info[key_name]['link']
 	fighters_image=fighters_info[key_name]['img']
 	record=[]
